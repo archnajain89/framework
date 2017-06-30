@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="88318" started-at="2017-06-30T12:50:10Z" finished-at="2017-06-30T12:51:38Z">
+    <groups>
+      <group name="signup">
+        <method signature="HomePage.enterCity(java.lang.String)[pri:1, instance:com.bhavna.pages.HomePage@685cb137]" name="enterCity" class="com.bhavna.pages.HomePage"/>
+      </group> <!-- signup -->
+    </groups>
+    <test name="homepage" duration-ms="13255" started-at="2017-06-30T12:50:10Z" finished-at="2017-06-30T12:50:23Z">
+      <class name="com.bhavna.pages.HomePage">
+        <test-method status="PASS" signature="enterCity(java.lang.String)[pri:1, instance:com.bhavna.pages.HomePage@685cb137]" name="enterCity" duration-ms="12749" started-at="2017-06-30T18:20:10Z" data-provider="DP1" finished-at="2017-06-30T18:20:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[NOIDA]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterCity -->
+      </class> <!-- com.bhavna.pages.HomePage -->
+    </test> <!-- homepage -->
+    <test name="Signup" duration-ms="26067" started-at="2017-06-30T12:50:23Z" finished-at="2017-06-30T12:50:49Z">
+      <class name="com.bhavna.pages.SignupPage">
+        <test-method status="PASS" signature="signup(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.bhavna.pages.SignupPage@57fffcd7]" name="signup" duration-ms="26036" started-at="2017-06-30T18:20:23Z" data-provider="DP2" finished-at="2017-06-30T18:20:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[hnydown54@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[indiayoga09]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[indiayoga09]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signup -->
+      </class> <!-- com.bhavna.pages.SignupPage -->
+    </test> <!-- Signup -->
+    <test name="SignIn" duration-ms="5111" started-at="2017-06-30T12:50:49Z" finished-at="2017-06-30T12:50:54Z">
+      <class name="com.bhavna.pages.SigninPage">
+        <test-method status="PASS" signature="signIn(java.lang.String, java.lang.String)[pri:3, instance:com.bhavna.pages.SigninPage@271053e1]" name="signIn" duration-ms="5081" started-at="2017-06-30T18:20:49Z" data-provider="DP3" finished-at="2017-06-30T18:20:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[hnydown54@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[indiayoga09]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signIn -->
+      </class> <!-- com.bhavna.pages.SigninPage -->
+    </test> <!-- SignIn -->
+    <test name="bookticket" duration-ms="43854" started-at="2017-06-30T12:50:54Z" finished-at="2017-06-30T12:51:38Z">
+      <class name="com.bhavna.pages.BookMovie">
+        <test-method status="PASS" signature="StartBrowser()[pri:0, instance:com.bhavna.pages.BookMovie@3fee9989]" name="StartBrowser" is-config="true" duration-ms="14365" started-at="2017-06-30T18:19:55Z" finished-at="2017-06-30T18:20:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StartBrowser -->
+        <test-method status="PASS" signature="selectLang(java.lang.String, java.lang.String)[pri:4, instance:com.bhavna.pages.BookMovie@3fee9989]" name="selectLang" duration-ms="43839" started-at="2017-06-30T18:20:54Z" data-provider="DP4" finished-at="2017-06-30T18:21:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[8826845840]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[4893770900569510]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectLang -->
+      </class> <!-- com.bhavna.pages.BookMovie -->
+    </test> <!-- bookticket -->
+  </suite> <!-- Suite -->
+</testng-results>

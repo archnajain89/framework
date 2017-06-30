@@ -1,6 +1,9 @@
-package driverHelper;
+package com.bhavna.driverHelper;
 
-import java.util.ResourceBundle;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+//import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,18 +12,31 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.BeforeSuite;
 
+import resuablefunctions.Reusefunctions;
+//import org.testng.annotations.Test;
+
 public class CreateDriver
 {
 	
 	public static WebDriver driver;
-	public static ResourceBundle rb;
+	public static Reusefunctions reuse;
+	public static Properties prop;
 
 	@BeforeSuite
-		public void StartBrowser()
+		public void StartBrowser() throws IOException
 		{
 	
-		rb=ResourceBundle.getBundle("test");
-		if(rb.getString("BROWSER").equalsIgnoreCase("CHROME"))
+		System.out.println("START BROWSER");
+		reuse=new Reusefunctions();
+			
+		//To Read properties file
+		prop = new Properties();
+		String propFileName = "C:\\Users\\arrchnnajaiin\\gitframework\\FrameWork\\src\\test\\java\\config\\test.properties";
+		
+		FileInputStream fin=new FileInputStream(propFileName);
+		prop.load(fin);
+	
+		if(prop.getProperty("BROWSER").equalsIgnoreCase("CHROME"))
 		{
 			//Create a instance of ChromeOptions class
 			ChromeOptions options = new ChromeOptions();
@@ -34,29 +50,28 @@ public class CreateDriver
 					
 		}
 		
-		else if((rb.getString("BROWSER").equalsIgnoreCase("FIREFOX")))
+		else if(prop.getProperty("BROWSER").equalsIgnoreCase("FIREFOX"))
 		{
 		System.setProperty("webdriver.gecko.driver", "./Driver/gekodriver.exe");
 		driver=new FirefoxDriver();
 
 		/*ProfilesIni ffProfiles = new ProfilesIni();
 		FirefoxProfile profile = ffProfiles.getProfile("firefoxtestprofile");
-		FirefoxDriver driver1 = new FirefoxDriver(profile);*/
-		
+		FirefoxDriver driver1 = new FirefoxDriver(profile);*/		
 		//FirefoxProfile fp = new FirefoxProfile();
 		//fp.setPreference("dom.webnotifications.enabled", false);
 		//fp.setPreference("dom.webnotifications.serviceworker.enabled ", false);
 		//fp.setPreference("network.http.spdy.allow-push", false);
 		
 		}
-		else if((rb.getString("BROWSER").equalsIgnoreCase("IE")))
+		else if(prop.getProperty("BROWSER").equalsIgnoreCase("IE"))
 		{
 		System.setProperty("webdriver.ie.driver", "./Driver/IEDriverServer.exe");
 		driver=new InternetExplorerDriver();
 		}
 		
 		//Open URL
-		driver.get("URL");	
+		driver.get(prop.getProperty("URL"));	
 	
 		//Implicit wait for 10 seconds 
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
@@ -65,8 +80,7 @@ public class CreateDriver
 		}
 	}
 	
-	
-	
+
 /*	@AfterSuite
 public void EndBrowser()
 {

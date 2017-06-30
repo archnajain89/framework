@@ -1,13 +1,13 @@
-package pageControllers;
+package com.bhavna.pageControllers;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.NoSuchElementException;
-import java.util.ResourceBundle;
-
+import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import driverHelper.CreateDriver;
+import org.testng.Assert;
+import com.bhavna.driverHelper.CreateDriver;
 
 public class Commonlocators extends CreateDriver
 {
@@ -15,13 +15,20 @@ public class Commonlocators extends CreateDriver
 	//public static final String useregion_search="//input[@id='inp_RegionSearch_top']";
 		
 	
-	public static WebElement getWebElement(String locator)
+	public static WebElement getWebElement(String locator) throws IOException
 	{
 		
-		rb=ResourceBundle.getBundle("Element");
+		//rb=ResourceBundle.getBundle("Element");
+		prop = new Properties();
+		String propFileName = "C:\\Users\\arrchnnajaiin\\gitframework\\FrameWork\\src\\test\\java\\config\\Element.properties";
+		
+		FileInputStream fin=new FileInputStream(propFileName);
+		prop.load(fin);
+		prop.getProperty("Element");
+		
 		String[] tokens = locator.split("_");
 		String locatorType = tokens[tokens.length-1];
-		String strlocator = rb.getString(locator).trim();
+		String strlocator = prop.getProperty(locator).trim();
 		WebElement webElement = null;
 
 		try
@@ -58,7 +65,7 @@ public class Commonlocators extends CreateDriver
 		{
 		e.getMessage();
 		//log.error(strlocator + " Element not found");
-		//Assert.fail(strlocator + " Element not found");
+		Assert.fail(strlocator + " Element not found");
 
 		}
 
